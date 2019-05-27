@@ -41,6 +41,13 @@ class PokerDiceViewController: UIViewController {
 		SCNVector3( 0.05,  0.05,  0.02)
 	]
 
+	private lazy var focusNode: SCNNode = {
+		let scene = SCNScene(named: "PokerDice.scnassets/FocusScene.scn")!
+		let focusNode = scene.rootNode.childNode(withName: "focus", recursively: false)!
+		return focusNode
+	}()
+
+
 	//	MARK: - Outlets
 
 	@IBOutlet var sceneView: ARSCNView!
@@ -101,11 +108,12 @@ class PokerDiceViewController: UIViewController {
 		scene.lightingEnvironment.contents = "PokerDice.scnassets/Textures/Environment_CUBE.jpg"
 		scene.lightingEnvironment.intensity = 2
 		sceneView.scene = scene
-		sceneView.debugOptions = [.showFeaturePoints,
-															.showWorldOrigin,
-															.showBoundingBoxes,
-															.showWireframe]
+//		sceneView.debugOptions = [.showFeaturePoints,
+//															.showWorldOrigin,
+//															.showBoundingBoxes,
+//															.showWireframe]
 		sceneView.delegate = self
+		sceneView.scene.rootNode.addChildNode(focusNode)
 	}
 
 	private func initARSession() {
