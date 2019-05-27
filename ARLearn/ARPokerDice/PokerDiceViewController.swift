@@ -191,6 +191,12 @@ final class PokerDiceViewController: UIViewController {
 			gameState = .pointToSurface
 		}
 	}
+
+	func removeNode(planeNode: SCNNode) {
+		for node in planeNode.childNodes {
+			node.removeFromParentNode()
+		}
+	}
 }
 
 extension PokerDiceViewController {
@@ -275,6 +281,14 @@ extension PokerDiceViewController: SCNSceneRendererDelegate {
 		}
 	}
 
+	func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
+		guard anchor is ARPlaneAnchor else {
+			return
+		}
+		DispatchQueue.main.async {
+			self.removeNode(planeNode: node)
+		}
+	}
 }
 
 extension PokerDiceViewController {
