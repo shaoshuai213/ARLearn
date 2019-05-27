@@ -10,9 +10,25 @@ import UIKit
 import SceneKit
 import ARKit
 
-class ViewController: UIViewController, ARSCNViewDelegate {
+class PokerDiceViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+	@IBOutlet weak var statusLabel: UILabel!
+	@IBOutlet weak var startButton: UIButton!
+	@IBOutlet weak var styleButton: UIButton!
+	@IBOutlet weak var resetButton: UIButton!
+
+	@IBAction func startButtonPressed() {
+
+	}
+
+	@IBAction func styleButtonPressed() {
+
+	}
+
+	@IBAction func resetButtonPressed() {
+
+	}
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +40,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.showsStatistics = true
         
         // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
+			let scene = SCNScene(named: "PokerDice.scnassets/SimpleScene.scn")!
+
         // Set the scene to the view
         sceneView.scene = scene
+
+			statusLabel.text = "Greeting! :]"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,4 +90,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
     }
+}
+
+extension PokerDiceViewController {
+	override var prefersStatusBarHidden: Bool {
+		return true
+	}
 }
