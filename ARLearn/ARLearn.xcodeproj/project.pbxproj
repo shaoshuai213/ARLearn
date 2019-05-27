@@ -18,6 +18,8 @@
 		D736DF82229B8A3000C4FFC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D736DF81229B8A3000C4FFC3 /* Assets.xcassets */; };
 		D736DF85229B8A3000C4FFC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D736DF83229B8A3000C4FFC3 /* LaunchScreen.storyboard */; };
 		D736DF8B229B911E00C4FFC3 /* PokerDice.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D736DF8A229B911E00C4FFC3 /* PokerDice.scnassets */; };
+		D75D80A2229BED0F009358D1 /* GameUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75D809E229BED0F009358D1 /* GameUtils.swift */; };
+		D75D80A3229BED0F009358D1 /* SCNVector3+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75D809F229BED0F009358D1 /* SCNVector3+Extension.swift */; };
 		D7B8C783229BE2590060DC59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8C782229BE2590060DC59 /* AppDelegate.swift */; };
 		D7B8C785229BE2590060DC59 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D7B8C784229BE2590060DC59 /* art.scnassets */; };
 		D7B8C787229BE2590060DC59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8C786229BE2590060DC59 /* ViewController.swift */; };
@@ -42,6 +44,8 @@
 		D736DF84229B8A3000C4FFC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D736DF86229B8A3000C4FFC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D736DF8A229B911E00C4FFC3 /* PokerDice.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = PokerDice.scnassets; sourceTree = "<group>"; };
+		D75D809E229BED0F009358D1 /* GameUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameUtils.swift; sourceTree = "<group>"; };
+		D75D809F229BED0F009358D1 /* SCNVector3+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Extension.swift"; sourceTree = "<group>"; };
 		D7B8C780229BE2590060DC59 /* PBREarth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PBREarth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7B8C782229BE2590060DC59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7B8C784229BE2590060DC59 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 		D736DF77229B8A2F00C4FFC3 /* ARPokerDice */ = {
 			isa = PBXGroup;
 			children = (
+				D75D809D229BED0F009358D1 /* GameUtils */,
 				D736DF8A229B911E00C4FFC3 /* PokerDice.scnassets */,
 				D736DF78229B8A2F00C4FFC3 /* AppDelegate.swift */,
 				D736DF7C229B8A2F00C4FFC3 /* PokerDiceViewController.swift */,
@@ -122,6 +127,15 @@
 				D736DF86229B8A3000C4FFC3 /* Info.plist */,
 			);
 			path = ARPokerDice;
+			sourceTree = "<group>";
+		};
+		D75D809D229BED0F009358D1 /* GameUtils */ = {
+			isa = PBXGroup;
+			children = (
+				D75D809E229BED0F009358D1 /* GameUtils.swift */,
+				D75D809F229BED0F009358D1 /* SCNVector3+Extension.swift */,
+			);
+			path = GameUtils;
 			sourceTree = "<group>";
 		};
 		D7B8C781229BE2590060DC59 /* PBREarth */ = {
@@ -283,7 +297,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D736DF7D229B8A2F00C4FFC3 /* PokerDiceViewController.swift in Sources */,
+				D75D80A2229BED0F009358D1 /* GameUtils.swift in Sources */,
 				D736DF79229B8A2F00C4FFC3 /* AppDelegate.swift in Sources */,
+				D75D80A3229BED0F009358D1 /* SCNVector3+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,13 @@ import UIKit
 import SceneKit
 import ARKit
 
-class PokerDiceViewController: UIViewController {
+enum GameState: Int16 {
+	case detectSurface
+	case pointToSurface
+	case swipeToPlay
+}
+
+final class PokerDiceViewController: UIViewController {
 
 	//	MARK: - Properties
 	private var trackingStatus: String = "Greeting! :]" {
@@ -47,6 +53,10 @@ class PokerDiceViewController: UIViewController {
 		return focusNode
 	}()
 
+	private var gameState: GameState = .detectSurface
+	private var statusMessage: String = ""
+
+	var focusPoint: CGPoint = .zero
 
 	//	MARK: - Outlets
 
@@ -114,6 +124,12 @@ class PokerDiceViewController: UIViewController {
 //															.showWireframe]
 		sceneView.delegate = self
 		sceneView.scene.rootNode.addChildNode(focusNode)
+
+		focusPoint = CGPoint(x: view.center.x, y: view.center.y * 1.25)
+		NotificationCenter.default.addObserver(self,
+																					 selector: #selector(orientationChanged),
+																					 name: UIDevice.orientationDidChangeNotification,
+																					 object: nil)
 	}
 
 	private func initARSession() {
@@ -125,7 +141,55 @@ class PokerDiceViewController: UIViewController {
 		let config = ARWorldTrackingConfiguration()
 		config.worldAlignment = .gravity
 		config.providesAudioData = false
+		config.planeDetection = .horizontal
 		sceneView.session.run(config)
+	}
+
+	func updateStatus() {
+		switch gameState {
+		case .detectSurface:
+			statusMessage = "Scan entire table surface...\nHit START when ready!"
+		case .pointToSurface:
+			statusMessage = "Point at designated surface first!"
+		case .swipeToPlay:
+			statusMessage = "Swipe UP to throw!\nTap on dice to collect it again."
+		}
+		self.statusLabel.text = statusMessage
+	}
+
+	func createARPlaneNode(planeAnchor: ARPlaneAnchor, color: UIColor) -> SCNNode {
+		let planeGeometry = SCNPlane(width: CGFloat(planeAnchor.extent.x),
+																 height: CGFloat(planeAnchor.extent.z))
+		let planeMaterial = SCNMaterial()
+		planeMaterial.diffuse.contents = "PokerDice.scnassets/Textures/Surface_DIFFUSE.png"
+		planeGeometry.materials = [planeMaterial]
+		let planeNode = SCNNode(geometry: planeGeometry)
+		planeNode.position = SCNVector3(x: planeAnchor.center.x, y: 0, z: planeAnchor.center.z)
+		planeNode.transform = SCNMatrix4MakeRotation(-Float.pi/2, 1, 0, 0)
+		return planeNode
+	}
+
+	func updateARPlaneNode(planeNode: SCNNode, planeAnchor: ARPlaneAnchor) {
+		let planeGeometry = planeNode.geometry as! SCNPlane
+		planeGeometry.width = CGFloat(planeAnchor.extent.x)
+		planeGeometry.height = CGFloat(planeAnchor.extent.z)
+		planeNode.position = SCNVector3(x: planeAnchor.center.x,
+																		y: 0,
+																		z: planeAnchor.center.z)
+	}
+
+	func updateFocusNode() {
+		let results = sceneView.hitTest(focusPoint, types: [.existingPlaneUsingExtent])
+		if results.count == 1 {
+			let match = results[0]
+			let t = match.worldTransform
+			focusNode.position = SCNVector3(x: t.columns.3.x,
+																			y: t.columns.3.y,
+																			z: t.columns.3.z)
+			gameState = .swipeToPlay
+		} else {
+			gameState = .pointToSurface
+		}
 	}
 }
 
@@ -186,7 +250,28 @@ extension PokerDiceViewController: SCNSceneRendererDelegate {
 
 	func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
 		DispatchQueue.main.async {
-//			self.statusLabel.text = self.trackingStatus
+			self.updateStatus()
+			self.updateFocusNode()
+		}
+	}
+
+	func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+		guard let planeAnchor = anchor as? ARPlaneAnchor else {
+			return
+		}
+		DispatchQueue.main.async {
+			let planeNode = self.createARPlaneNode(planeAnchor: planeAnchor,
+																						 color: UIColor.yellow.withAlphaComponent(0.5))
+			node.addChildNode(planeNode)
+		}
+	}
+
+	func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+		guard let planeAnchor = anchor as? ARPlaneAnchor else {
+			return
+		}
+		DispatchQueue.main.async {
+			self.updateARPlaneNode(planeNode: node.childNodes[0], planeAnchor: planeAnchor)
 		}
 	}
 
@@ -195,5 +280,11 @@ extension PokerDiceViewController: SCNSceneRendererDelegate {
 extension PokerDiceViewController {
 	override var prefersStatusBarHidden: Bool {
 		return true
+	}
+}
+
+extension PokerDiceViewController {
+	@objc func orientationChanged() {
+		focusPoint = CGPoint(x: view.center.x, y: view.center.y * 1.25)
 	}
 }
