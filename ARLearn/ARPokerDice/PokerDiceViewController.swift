@@ -21,6 +21,26 @@ class PokerDiceViewController: UIViewController {
 		}
 	}
 
+	private lazy var diceNodes: [SCNNode] = {
+		var disceNodes: [SCNNode] = []
+		let diceScene = SCNScene(named: "PokerDice.scnassets/DiceScene.scn")!
+		for index in 0..<5 {
+			let node = diceScene.rootNode.childNode(withName: "dice\(index)", recursively: false)!
+			disceNodes.append(node)
+		}
+		return disceNodes
+	}()
+
+	private var diceCount: Int = 5
+	private var diceStyle: Int = 0
+	private var diceOffset: [SCNVector3] = [
+		SCNVector3( 0.00,  0.00,  0.00),
+		SCNVector3(-0.05,  0.00,  0.00),
+		SCNVector3( 0.05,  0.00,  0.00),
+		SCNVector3(-0.05,  0.05,  0.02),
+		SCNVector3( 0.05,  0.05,  0.02)
+	]
+
 	//	MARK: - Outlets
 
 	@IBOutlet var sceneView: ARSCNView!
@@ -36,11 +56,20 @@ class PokerDiceViewController: UIViewController {
 	}
 
 	@IBAction func styleButtonPressed() {
-
+		diceStyle = diceStyle >= 4 ? 0 : diceStyle + 1
 	}
 
 	@IBAction func resetButtonPressed() {
 
+	}
+
+	@IBAction func swipeUpGestureHandler() {
+		guard let frame = self.sceneView.session.currentFrame else {
+			return
+		}
+		for index in 0..<diceCount {
+			throwDiceNode(transform: SCNMatrix4(frame.camera.transform), offset: diceOffset[index])
+		}
 	}
 
 	//	MARK: - View Management
@@ -68,7 +97,9 @@ class PokerDiceViewController: UIViewController {
 	//	MARK: - Initialization
 
 	private func initSceneView() {
-		let scene = SCNScene(named: "PokerDice.scnassets/SimpleScene.scn")!
+		let scene = SCNScene()
+		scene.lightingEnvironment.contents = "PokerDice.scnassets/Textures/Environment_CUBE.jpg"
+		scene.lightingEnvironment.intensity = 2
 		sceneView.scene = scene
 		sceneView.debugOptions = [.showFeaturePoints,
 															.showWorldOrigin,
@@ -87,6 +118,19 @@ class PokerDiceViewController: UIViewController {
 		config.worldAlignment = .gravity
 		config.providesAudioData = false
 		sceneView.session.run(config)
+	}
+}
+
+extension PokerDiceViewController {
+	func throwDiceNode(transform: SCNMatrix4, offset: SCNVector3) {
+		let position = SCNVector3(transform.m41 + offset.x,
+															transform.m42 + offset.y,
+															transform.m43 + offset.z)
+		let diceNode = diceNodes[diceStyle].clone()
+		diceNode.name = "dice"
+		diceNode.position = position
+		sceneView.scene.rootNode.addChildNode(diceNode)
+//		diceCount -= 1
 	}
 }
 
