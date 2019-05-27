@@ -13,7 +13,13 @@ import ARKit
 class PokerDiceViewController: UIViewController {
 
 	//	MARK: - Properties
-	private var trackingStatus: String = ""
+	private var trackingStatus: String = "Greeting! :]" {
+		didSet {
+			DispatchQueue.main.async {
+				self.statusLabel.text = self.trackingStatus
+			}
+		}
+	}
 
 	//	MARK: - Outlets
 
@@ -42,19 +48,8 @@ class PokerDiceViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		// Set the view's delegate
-		sceneView.delegate = self
-
-		// Show statistics such as fps and timing information
-		sceneView.showsStatistics = true
-
-		// Create a new scene
-		let scene = SCNScene(named: "PokerDice.scnassets/SimpleScene.scn")!
-
-		// Set the scene to the view
-		sceneView.scene = scene
-
-		statusLabel.text = "Greeting! :]"
+		statusLabel.text = trackingStatus
+		initSceneView()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -71,6 +66,16 @@ class PokerDiceViewController: UIViewController {
 	}
 
 	//	MARK: - Initialization
+
+	private func initSceneView() {
+		let scene = SCNScene(named: "PokerDice.scnassets/SimpleScene.scn")!
+		sceneView.scene = scene
+		sceneView.debugOptions = [.showFeaturePoints,
+															.showWorldOrigin,
+															.showBoundingBoxes,
+															.showWireframe]
+		sceneView.delegate = self
+	}
 
 	private func initARSession() {
 		guard ARWorldTrackingConfiguration.isSupported else {
@@ -129,7 +134,7 @@ extension PokerDiceViewController: SCNSceneRendererDelegate {
 
 	func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
 		DispatchQueue.main.async {
-			self.statusLabel.text = self.trackingStatus
+//			self.statusLabel.text = self.trackingStatus
 		}
 	}
 
