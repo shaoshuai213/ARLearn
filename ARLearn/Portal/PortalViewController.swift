@@ -10,6 +10,12 @@ import UIKit
 import SceneKit
 import ARKit
 
+let POSITION_Y: CGFloat = -WALL_HEIGHT * 0.5
+let POSITION_Z: CGFloat = -SURFACE_LENGTH * 0.5
+
+let DOOR_WIDTH: CGFloat = 1.0
+let DOOR_HEIGHT: CGFloat = 2.4
+
 final class PortalViewController: UIViewController {
 
 	var planeNodes: [SCNNode] = []
@@ -79,10 +85,75 @@ final class PortalViewController: UIViewController {
 
 	func makePortal() -> SCNNode {
 		let portal = SCNNode()
-		let box = SCNBox(width: 1.0, height: 1.0, length: 1.0, chamferRadius: 0)
-		let boxNode = SCNNode(geometry: box)
-		portal.addChildNode(boxNode)
+
+		let floorNode = makeFloorNode()
+		floorNode.position = SCNVector3(x: 0, y: Float(POSITION_Y), z: Float(POSITION_Z))
+		portal.addChildNode(floorNode)
+
+		let ceilingNode = makeCeilingNode()
+		ceilingNode.position = SCNVector3(0, POSITION_Y + WALL_HEIGHT, POSITION_Z)
+		portal.addChildNode(ceilingNode)
+
+		let farWallNode = makeWallNode()
+		farWallNode.eulerAngles = SCNVector3(0, 90.0.degreesToRadians, 0)
+		farWallNode.position = SCNVector3(0,
+																			POSITION_Y + WALL_HEIGHT * 0.5,
+																			POSITION_Z - SURFACE_LENGTH * 0.5)
+		portal.addChildNode(farWallNode)
+
+		let rightSideWallNode = makeWallNode(maskLowerSide: true)
+		rightSideWallNode.eulerAngles = SCNVector3(0, 180.0.degreesToRadians, 0)
+		rightSideWallNode.position = SCNVector3(WALL_LENGTH * 0.5,
+																						POSITION_Y + WALL_HEIGHT * 0.5,
+																						POSITION_Z)
+		portal.addChildNode(rightSideWallNode)
+
+		let leftSideWallNode = makeWallNode(maskLowerSide: true)
+		leftSideWallNode.position = SCNVector3(-WALL_LENGTH * 0.5,
+																					 POSITION_Y + WALL_HEIGHT * 0.5,
+																					 POSITION_Z)
+		portal.addChildNode(leftSideWallNode)
+
+		addDoorway(node: portal)
+		placeLightSource(rootNode: portal)
+
 		return portal
+	}
+
+	func addDoorway(node: SCNNode) {
+		let halfWallLength: CGFloat = WALL_LENGTH * 0.5
+		let frontHalfWallLength: CGFloat = (WALL_LENGTH - DOOR_WIDTH) * 0.5
+
+		let leftDoorSideNode = makeWallNode(length: frontHalfWallLength)
+		leftDoorSideNode.eulerAngles = SCNVector3(0, 270.0.degreesToRadians, 0)
+		leftDoorSideNode.position = SCNVector3(-halfWallLength + 0.5 * frontHalfWallLength,
+																					 POSITION_Y + WALL_HEIGHT * 0.5,
+																					 POSITION_Z + SURFACE_LENGTH * 0.5)
+		node.addChildNode(leftDoorSideNode)
+
+		let rightDoorSideNode = makeWallNode(length: frontHalfWallLength)
+		rightDoorSideNode.eulerAngles = SCNVector3(0, 270.0.degreesToRadians, 0)
+		rightDoorSideNode.position = SCNVector3(halfWallLength - 0.5 * DOOR_WIDTH,
+																						POSITION_Y + WALL_HEIGHT * 0.5,
+																						POSITION_Z + SURFACE_LENGTH * 0.5)
+		node.addChildNode(rightDoorSideNode)
+
+		let aboveDoorNode = makeWallNode(length: DOOR_WIDTH, height: WALL_HEIGHT - DOOR_WIDTH)
+		aboveDoorNode.eulerAngles = SCNVector3(0, 270.0.degreesToRadians, 0)
+		aboveDoorNode.position = SCNVector3(0,
+																				POSITION_Y + (WALL_HEIGHT - DOOR_HEIGHT) * 0.5 + DOOR_HEIGHT,
+																				POSITION_Z + SURFACE_LENGTH * 0.5)
+		node.addChildNode(aboveDoorNode)
+	}
+
+	func placeLightSource(rootNode: SCNNode) {
+		let light = SCNLight()
+		light.intensity = 10
+		light.type = .omni
+		let lightNode = SCNNode()
+		lightNode.light = light
+		lightNode.position = SCNVector3(0, POSITION_Y + WALL_HEIGHT, POSITION_Z)
+		rootNode.addChildNode(lightNode)
 	}
 }
 
