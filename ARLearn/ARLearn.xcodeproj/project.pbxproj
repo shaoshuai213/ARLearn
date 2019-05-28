@@ -20,6 +20,16 @@
 		D736DF8B229B911E00C4FFC3 /* PokerDice.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D736DF8A229B911E00C4FFC3 /* PokerDice.scnassets */; };
 		D75D80A2229BED0F009358D1 /* GameUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75D809E229BED0F009358D1 /* GameUtils.swift */; };
 		D75D80A3229BED0F009358D1 /* SCNVector3+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75D809F229BED0F009358D1 /* SCNVector3+Extension.swift */; };
+		D79F72D0229D217D00951FC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F72CF229D217D00951FC8 /* AppDelegate.swift */; };
+		D79F72D2229D217D00951FC8 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D79F72D1229D217D00951FC8 /* art.scnassets */; };
+		D79F72D4229D217D00951FC8 /* PortalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F72D3229D217D00951FC8 /* PortalViewController.swift */; };
+		D79F72D7229D217D00951FC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79F72D5229D217D00951FC8 /* Main.storyboard */; };
+		D79F72D9229D217E00951FC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D79F72D8229D217E00951FC8 /* Assets.xcassets */; };
+		D79F72DC229D217E00951FC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79F72DA229D217E00951FC8 /* LaunchScreen.storyboard */; };
+		D79F72E5229D242300951FC8 /* RWLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F72E2229D242300951FC8 /* RWLabel.swift */; };
+		D79F72E6229D242300951FC8 /* FloatingPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F72E3229D242300951FC8 /* FloatingPointExtension.swift */; };
+		D79F72E7229D242300951FC8 /* SCNVector3Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F72E4229D242300951FC8 /* SCNVector3Extension.swift */; };
+		D79F72E9229D2A7600951FC8 /* SCNNodeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F72E8229D2A7600951FC8 /* SCNNodeHelpers.swift */; };
 		D7B8C783229BE2590060DC59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8C782229BE2590060DC59 /* AppDelegate.swift */; };
 		D7B8C785229BE2590060DC59 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D7B8C784229BE2590060DC59 /* art.scnassets */; };
 		D7B8C787229BE2590060DC59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8C786229BE2590060DC59 /* ViewController.swift */; };
@@ -46,6 +56,18 @@
 		D736DF8A229B911E00C4FFC3 /* PokerDice.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = PokerDice.scnassets; sourceTree = "<group>"; };
 		D75D809E229BED0F009358D1 /* GameUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameUtils.swift; sourceTree = "<group>"; };
 		D75D809F229BED0F009358D1 /* SCNVector3+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Extension.swift"; sourceTree = "<group>"; };
+		D79F72CD229D217D00951FC8 /* Portal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D79F72CF229D217D00951FC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D79F72D1229D217D00951FC8 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		D79F72D3229D217D00951FC8 /* PortalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalViewController.swift; sourceTree = "<group>"; };
+		D79F72D6229D217D00951FC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D79F72D8229D217E00951FC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D79F72DB229D217E00951FC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D79F72DD229D217E00951FC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D79F72E2229D242300951FC8 /* RWLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RWLabel.swift; sourceTree = "<group>"; };
+		D79F72E3229D242300951FC8 /* FloatingPointExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPointExtension.swift; sourceTree = "<group>"; };
+		D79F72E4229D242300951FC8 /* SCNVector3Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCNVector3Extension.swift; sourceTree = "<group>"; };
+		D79F72E8229D2A7600951FC8 /* SCNNodeHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNNodeHelpers.swift; sourceTree = "<group>"; };
 		D7B8C780229BE2590060DC59 /* PBREarth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PBREarth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7B8C782229BE2590060DC59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7B8C784229BE2590060DC59 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -71,6 +93,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D79F72CA229D217D00951FC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D7B8C77D229BE2590060DC59 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -87,6 +116,7 @@
 				D736DF5F229B867600C4FFC3 /* ARLearn */,
 				D736DF77229B8A2F00C4FFC3 /* ARPokerDice */,
 				D7B8C781229BE2590060DC59 /* PBREarth */,
+				D79F72CE229D217D00951FC8 /* Portal */,
 				D736DF5E229B867600C4FFC3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -97,6 +127,7 @@
 				D736DF5D229B867600C4FFC3 /* ARLearn.app */,
 				D736DF76229B8A2F00C4FFC3 /* ARPokerDice.app */,
 				D7B8C780229BE2590060DC59 /* PBREarth.app */,
+				D79F72CD229D217D00951FC8 /* Portal.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,6 +167,32 @@
 				D75D809F229BED0F009358D1 /* SCNVector3+Extension.swift */,
 			);
 			path = GameUtils;
+			sourceTree = "<group>";
+		};
+		D79F72CE229D217D00951FC8 /* Portal */ = {
+			isa = PBXGroup;
+			children = (
+				D79F72E1229D242300951FC8 /* Helpers */,
+				D79F72CF229D217D00951FC8 /* AppDelegate.swift */,
+				D79F72D1229D217D00951FC8 /* art.scnassets */,
+				D79F72D3229D217D00951FC8 /* PortalViewController.swift */,
+				D79F72D5229D217D00951FC8 /* Main.storyboard */,
+				D79F72D8229D217E00951FC8 /* Assets.xcassets */,
+				D79F72DA229D217E00951FC8 /* LaunchScreen.storyboard */,
+				D79F72DD229D217E00951FC8 /* Info.plist */,
+			);
+			path = Portal;
+			sourceTree = "<group>";
+		};
+		D79F72E1229D242300951FC8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D79F72E2229D242300951FC8 /* RWLabel.swift */,
+				D79F72E3229D242300951FC8 /* FloatingPointExtension.swift */,
+				D79F72E4229D242300951FC8 /* SCNVector3Extension.swift */,
+				D79F72E8229D2A7600951FC8 /* SCNNodeHelpers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		D7B8C781229BE2590060DC59 /* PBREarth */ = {
@@ -189,6 +246,23 @@
 			productReference = D736DF76229B8A2F00C4FFC3 /* ARPokerDice.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D79F72CC229D217D00951FC8 /* Portal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D79F72E0229D217E00951FC8 /* Build configuration list for PBXNativeTarget "Portal" */;
+			buildPhases = (
+				D79F72C9229D217D00951FC8 /* Sources */,
+				D79F72CA229D217D00951FC8 /* Frameworks */,
+				D79F72CB229D217D00951FC8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Portal;
+			productName = Portal;
+			productReference = D79F72CD229D217D00951FC8 /* Portal.app */;
+			productType = "com.apple.product-type.application";
+		};
 		D7B8C77F229BE2590060DC59 /* PBREarth */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D7B8C793229BE25A0060DC59 /* Build configuration list for PBXNativeTarget "PBREarth" */;
@@ -222,6 +296,9 @@
 					D736DF75229B8A2F00C4FFC3 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
+					D79F72CC229D217D00951FC8 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
 					D7B8C77F229BE2590060DC59 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -243,6 +320,7 @@
 				D736DF5C229B867600C4FFC3 /* ARLearn */,
 				D736DF75229B8A2F00C4FFC3 /* ARPokerDice */,
 				D7B8C77F229BE2590060DC59 /* PBREarth */,
+				D79F72CC229D217D00951FC8 /* Portal */,
 			);
 		};
 /* End PBXProject section */
@@ -266,6 +344,17 @@
 				D736DF85229B8A3000C4FFC3 /* LaunchScreen.storyboard in Resources */,
 				D736DF82229B8A3000C4FFC3 /* Assets.xcassets in Resources */,
 				D736DF80229B8A2F00C4FFC3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D79F72CB229D217D00951FC8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D79F72D2229D217D00951FC8 /* art.scnassets in Resources */,
+				D79F72DC229D217E00951FC8 /* LaunchScreen.storyboard in Resources */,
+				D79F72D9229D217E00951FC8 /* Assets.xcassets in Resources */,
+				D79F72D7229D217D00951FC8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +389,19 @@
 				D75D80A2229BED0F009358D1 /* GameUtils.swift in Sources */,
 				D736DF79229B8A2F00C4FFC3 /* AppDelegate.swift in Sources */,
 				D75D80A3229BED0F009358D1 /* SCNVector3+Extension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D79F72C9229D217D00951FC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D79F72E7229D242300951FC8 /* SCNVector3Extension.swift in Sources */,
+				D79F72D4229D217D00951FC8 /* PortalViewController.swift in Sources */,
+				D79F72E9229D2A7600951FC8 /* SCNNodeHelpers.swift in Sources */,
+				D79F72D0229D217D00951FC8 /* AppDelegate.swift in Sources */,
+				D79F72E6229D242300951FC8 /* FloatingPointExtension.swift in Sources */,
+				D79F72E5229D242300951FC8 /* RWLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +445,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				D736DF84229B8A3000C4FFC3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D79F72D5229D217D00951FC8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D79F72D6229D217D00951FC8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D79F72DA229D217E00951FC8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D79F72DB229D217E00951FC8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -556,6 +674,44 @@
 			};
 			name = Release;
 		};
+		D79F72DE229D217E00951FC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 69G8BQ9KQW;
+				INFOPLIST_FILE = Portal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sxw.Portal;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D79F72DF229D217E00951FC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 69G8BQ9KQW;
+				INFOPLIST_FILE = Portal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sxw.Portal;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		D7B8C791229BE25A0060DC59 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -618,6 +774,15 @@
 			buildConfigurations = (
 				D736DF88229B8A3000C4FFC3 /* Debug */,
 				D736DF89229B8A3000C4FFC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D79F72E0229D217E00951FC8 /* Build configuration list for PBXNativeTarget "Portal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D79F72DE229D217E00951FC8 /* Debug */,
+				D79F72DF229D217E00951FC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
