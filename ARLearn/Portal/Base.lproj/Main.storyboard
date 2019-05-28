@@ -24,7 +24,7 @@
                                     <outlet property="delegate" destination="BV1-FR-VrT" id="XlD-h1-syO"/>
                                 </connections>
                             </arscnView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFE-Pj-GJ2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFE-Pj-GJ2">
                                 <rect key="frame" x="20" y="40" width="374" height="100"/>
                                 <color key="backgroundColor" red="0.97647058823529409" green="0.91289898586490448" blue="0.90316803574575999" alpha="0.40999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -34,7 +34,7 @@
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Session Interruption Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YyA-Lu-HIx">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Session Interruption Message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YyA-Lu-HIx">
                                 <rect key="frame" x="0.0" y="672" width="414" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="1CM-XK-ajq"/>
@@ -43,23 +43,34 @@
                                 <color key="textColor" red="0.82745098039215681" green="0.21568627450980393" blue="0.78431372549019607" alpha="0.40999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXi-ko-Js1" userLabel="Crosshair">
+                                <rect key="frame" x="202" y="363" width="10" height="10"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="NUp-5f-nBa"/>
+                                    <constraint firstAttribute="width" constant="10" id="yAa-Wd-Dgm"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="zFE-Pj-GJ2" secondAttribute="trailing" constant="20" id="F7s-eC-JtK"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="GsS-dJ-CKf"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="YyA-Lu-HIx" secondAttribute="bottom" id="L4g-WX-qOY"/>
+                            <constraint firstItem="lXi-ko-Js1" firstAttribute="centerY" secondItem="U0K-SW-4ec" secondAttribute="centerY" id="OTV-z2-fQy"/>
                             <constraint firstItem="YyA-Lu-HIx" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="Ryr-gf-fu6"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="VpT-BR-CcM"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XyZ-9z-H8e"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="YyA-Lu-HIx" secondAttribute="trailing" id="aUf-uj-KY5"/>
                             <constraint firstItem="zFE-Pj-GJ2" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" constant="20" id="etv-NS-qBX"/>
+                            <constraint firstItem="lXi-ko-Js1" firstAttribute="centerX" secondItem="U0K-SW-4ec" secondAttribute="centerX" id="iQr-0P-cms"/>
                             <constraint firstItem="zFE-Pj-GJ2" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="20" id="jQn-Vz-Pdh"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                     </view>
                     <connections>
+                        <outlet property="crosshair" destination="lXi-ko-Js1" id="Lru-cu-Hz6"/>
                         <outlet property="messageLabel" destination="zFE-Pj-GJ2" id="uqe-xO-MqT"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
                         <outlet property="sessionStateLabel" destination="YyA-Lu-HIx" id="4zJ-NN-cGY"/>
