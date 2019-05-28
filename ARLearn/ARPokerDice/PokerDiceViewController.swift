@@ -47,16 +47,14 @@ final class PokerDiceViewController: UIViewController {
 		SCNVector3( 0.05,  0.05,  0.02)
 	]
 
-	private lazy var focusNode: SCNNode = {
-		let scene = SCNScene(named: "PokerDice.scnassets/FocusScene.scn")!
-		let focusNode = scene.rootNode.childNode(withName: "focus", recursively: false)!
-		return focusNode
-	}()
+	private var focusNode: SCNNode!
 
 	private var gameState: GameState = .detectSurface
 	private var statusMessage: String = ""
 
 	var focusPoint: CGPoint = .zero
+
+	var lightNode: SCNNode!
 
 	//	MARK: - Outlets
 
@@ -69,7 +67,7 @@ final class PokerDiceViewController: UIViewController {
 	//	MARK: - Actions
 
 	@IBAction func startButtonPressed() {
-
+		startGame()
 	}
 
 	@IBAction func styleButtonPressed() {
@@ -77,11 +75,11 @@ final class PokerDiceViewController: UIViewController {
 	}
 
 	@IBAction func resetButtonPressed() {
-
+		resetGame()
 	}
 
 	@IBAction func swipeUpGestureHandler() {
-		guard let frame = self.sceneView.session.currentFrame else {
+		guard let frame = self.sceneView.session.currentFrame, gameState == .swipeToPlay else {
 			return
 		}
 		for index in 0..<diceCount {
@@ -95,6 +93,7 @@ final class PokerDiceViewController: UIViewController {
 		super.viewDidLoad()
 
 		statusLabel.text = trackingStatus
+		initModels()
 		initSceneView()
 	}
 
@@ -113,10 +112,19 @@ final class PokerDiceViewController: UIViewController {
 
 	//	MARK: - Initialization
 
+	private func initModels() {
+		let focusScene = SCNScene(named: "PokerDice.scnassets/FocusScene.scn")!
+		focusNode = focusScene.rootNode.childNode(withName: "focus", recursively: false)!
+		let diceScene = SCNScene(named: "PokerDice.scnassets/DiceScene.scn")!
+		lightNode = diceScene.rootNode.childNode(withName: "directional", recursively: false)!
+	}
+
 	private func initSceneView() {
 		let scene = SCNScene()
 		scene.lightingEnvironment.contents = "PokerDice.scnassets/Textures/Environment_CUBE.jpg"
 		scene.lightingEnvironment.intensity = 2
+		scene.physicsWorld.speed = 1.0
+		scene.physicsWorld.timeStep = 1.0 / 60.0
 		sceneView.scene = scene
 //		sceneView.debugOptions = [.showFeaturePoints,
 //															.showWorldOrigin,
@@ -124,6 +132,7 @@ final class PokerDiceViewController: UIViewController {
 //															.showWireframe]
 		sceneView.delegate = self
 		sceneView.scene.rootNode.addChildNode(focusNode)
+		sceneView.scene.rootNode.addChildNode(lightNode)
 
 		focusPoint = CGPoint(x: view.center.x, y: view.center.y * 1.25)
 		NotificationCenter.default.addObserver(self,
@@ -142,6 +151,7 @@ final class PokerDiceViewController: UIViewController {
 		config.worldAlignment = .gravity
 		config.providesAudioData = false
 		config.planeDetection = .horizontal
+		config.isLightEstimationEnabled = true
 		sceneView.session.run(config)
 	}
 
@@ -166,7 +176,17 @@ final class PokerDiceViewController: UIViewController {
 		let planeNode = SCNNode(geometry: planeGeometry)
 		planeNode.position = SCNVector3(x: planeAnchor.center.x, y: 0, z: planeAnchor.center.z)
 		planeNode.transform = SCNMatrix4MakeRotation(-Float.pi/2, 1, 0, 0)
+		planeNode.physicsBody = createARPlanePhysics(geometry: planeGeometry)
 		return planeNode
+	}
+
+	func createARPlanePhysics(geometry: SCNGeometry) -> SCNPhysicsBody {
+		let physicalBody = SCNPhysicsBody(type: .kinematic,
+																			shape: SCNPhysicsShape(geometry: geometry,
+																														 options: [:]))
+		physicalBody.restitution = 0.5
+		physicalBody.friction = 0.5
+		return physicalBody
 	}
 
 	func updateARPlaneNode(planeNode: SCNNode, planeAnchor: ARPlaneAnchor) {
@@ -176,6 +196,8 @@ final class PokerDiceViewController: UIViewController {
 		planeNode.position = SCNVector3(x: planeAnchor.center.x,
 																		y: 0,
 																		z: planeAnchor.center.z)
+		planeNode.physicsBody = nil
+		planeNode.physicsBody = createARPlanePhysics(geometry: planeGeometry)
 	}
 
 	func updateFocusNode() {
@@ -197,18 +219,83 @@ final class PokerDiceViewController: UIViewController {
 			node.removeFromParentNode()
 		}
 	}
+
+	func updateDiceNodes() {
+		for node in sceneView.scene.rootNode.childNodes {
+			if node.name == "dice" {
+				if node.presentation.position.y < -2 {
+					node.removeFromParentNode()
+					diceCount += 1
+				}
+			}
+		}
+	}
+
+	func suspendARPlaneDetection() {
+		let config = sceneView.session.configuration as! ARWorldTrackingConfiguration
+		config.planeDetection = []
+		sceneView.session.run(config)
+	}
+
+	func hideARPlaneNodes() {
+		guard let frame = sceneView.session.currentFrame else {
+			return
+		}
+		for anchor in frame.anchors {
+			if let node = sceneView.node(for: anchor) {
+				for child in node.childNodes {
+					let material = child.geometry?.materials.first
+					material?.colorBufferWriteMask = []
+				}
+			}
+		}
+	}
+
+	func startGame() {
+		DispatchQueue.main.async {
+			self.startButton.isHidden = true
+			self.suspendARPlaneDetection()
+			self.hideARPlaneNodes()
+			self.gameState = .pointToSurface
+		}
+	}
+
+	func resetARSession() {
+		let config = sceneView.session.configuration as! ARWorldTrackingConfiguration
+		config.planeDetection = .horizontal
+		sceneView.session.run(config, options: [.resetTracking, .removeExistingAnchors])
+	}
+
+	func resetGame() {
+		DispatchQueue.main.async {
+			self.startButton.isHidden = false
+			self.resetARSession()
+			self.gameState = .detectSurface
+		}
+	}
 }
 
 extension PokerDiceViewController {
 	func throwDiceNode(transform: SCNMatrix4, offset: SCNVector3) {
+		let distance = simd_distance(focusNode.simdPosition,
+																 simd_make_float3(transform.m41, transform.m42, transform.m43))
+		let direction = SCNVector3(-(distance * 2.5) * transform.m31,
+															 -(distance * 2.5) * (transform.m32 - Float.pi / 4),
+															 -(distance * 2.5) * transform.m33)
+		let rotation = SCNVector3(Double.random(min: 0, max: Double.pi),
+															Double.random(min: 0, max: Double.pi),
+															Double.random(min: 0, max: Double.pi))
 		let position = SCNVector3(transform.m41 + offset.x,
 															transform.m42 + offset.y,
 															transform.m43 + offset.z)
 		let diceNode = diceNodes[diceStyle].clone()
 		diceNode.name = "dice"
 		diceNode.position = position
+		diceNode.eulerAngles = rotation
+		diceNode.physicsBody?.resetTransform()
+		diceNode.physicsBody?.applyForce(direction, asImpulse: true)
 		sceneView.scene.rootNode.addChildNode(diceNode)
-//		diceCount -= 1
+		diceCount -= 1
 	}
 }
 
@@ -226,6 +313,7 @@ extension PokerDiceViewController: ARSCNViewDelegate {
 
 	func sessionInterruptionEnded(_ session: ARSession) {
 		trackingStatus = "AR Session Interruption Ended!"
+		resetGame()
 	}
 
 	func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
@@ -258,6 +346,7 @@ extension PokerDiceViewController: SCNSceneRendererDelegate {
 		DispatchQueue.main.async {
 			self.updateStatus()
 			self.updateFocusNode()
+			self.updateDiceNodes()
 		}
 	}
 
@@ -300,5 +389,20 @@ extension PokerDiceViewController {
 extension PokerDiceViewController {
 	@objc func orientationChanged() {
 		focusPoint = CGPoint(x: view.center.x, y: view.center.y * 1.25)
+	}
+}
+
+extension PokerDiceViewController {
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		DispatchQueue.main.async {
+			if let touchLocation = touches.first?.location(in: self.sceneView) {
+				if let hit = self.sceneView.hitTest(touchLocation, options: [:]).first {
+					if hit.node.name == "dice" {
+						hit.node.removeFromParentNode()
+						self.diceCount += 1
+					}
+				}
+			}
+		}
 	}
 }
