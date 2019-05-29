@@ -30,6 +30,12 @@
 		D79F72E6229D242300951FC8 /* FloatingPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F72E3229D242300951FC8 /* FloatingPointExtension.swift */; };
 		D79F72E7229D242300951FC8 /* SCNVector3Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F72E4229D242300951FC8 /* SCNVector3Extension.swift */; };
 		D79F72E9229D2A7600951FC8 /* SCNNodeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F72E8229D2A7600951FC8 /* SCNNodeHelpers.swift */; };
+		D79F72F1229E325C00951FC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F72F0229E325C00951FC8 /* AppDelegate.swift */; };
+		D79F72F3229E325C00951FC8 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D79F72F2229E325C00951FC8 /* art.scnassets */; };
+		D79F72F5229E325C00951FC8 /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F72F4229E325C00951FC8 /* AdViewController.swift */; };
+		D79F72F8229E325C00951FC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79F72F6229E325C00951FC8 /* Main.storyboard */; };
+		D79F72FA229E325D00951FC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D79F72F9229E325D00951FC8 /* Assets.xcassets */; };
+		D79F72FD229E325D00951FC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79F72FB229E325D00951FC8 /* LaunchScreen.storyboard */; };
 		D7B8C783229BE2590060DC59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8C782229BE2590060DC59 /* AppDelegate.swift */; };
 		D7B8C785229BE2590060DC59 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D7B8C784229BE2590060DC59 /* art.scnassets */; };
 		D7B8C787229BE2590060DC59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8C786229BE2590060DC59 /* ViewController.swift */; };
@@ -68,6 +74,14 @@
 		D79F72E3229D242300951FC8 /* FloatingPointExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPointExtension.swift; sourceTree = "<group>"; };
 		D79F72E4229D242300951FC8 /* SCNVector3Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCNVector3Extension.swift; sourceTree = "<group>"; };
 		D79F72E8229D2A7600951FC8 /* SCNNodeHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNNodeHelpers.swift; sourceTree = "<group>"; };
+		D79F72EE229E325C00951FC8 /* RazeAd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RazeAd.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D79F72F0229E325C00951FC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D79F72F2229E325C00951FC8 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		D79F72F4229E325C00951FC8 /* AdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdViewController.swift; sourceTree = "<group>"; };
+		D79F72F7229E325C00951FC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D79F72F9229E325D00951FC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D79F72FC229E325D00951FC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D79F72FE229E325D00951FC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7B8C780229BE2590060DC59 /* PBREarth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PBREarth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7B8C782229BE2590060DC59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7B8C784229BE2590060DC59 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -100,6 +114,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D79F72EB229E325C00951FC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D7B8C77D229BE2590060DC59 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -117,6 +138,7 @@
 				D736DF77229B8A2F00C4FFC3 /* ARPokerDice */,
 				D7B8C781229BE2590060DC59 /* PBREarth */,
 				D79F72CE229D217D00951FC8 /* Portal */,
+				D79F72EF229E325C00951FC8 /* RazeAd */,
 				D736DF5E229B867600C4FFC3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -128,6 +150,7 @@
 				D736DF76229B8A2F00C4FFC3 /* ARPokerDice.app */,
 				D7B8C780229BE2590060DC59 /* PBREarth.app */,
 				D79F72CD229D217D00951FC8 /* Portal.app */,
+				D79F72EE229E325C00951FC8 /* RazeAd.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,6 +216,20 @@
 				D79F72E8229D2A7600951FC8 /* SCNNodeHelpers.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D79F72EF229E325C00951FC8 /* RazeAd */ = {
+			isa = PBXGroup;
+			children = (
+				D79F72F0229E325C00951FC8 /* AppDelegate.swift */,
+				D79F72F2229E325C00951FC8 /* art.scnassets */,
+				D79F72F4229E325C00951FC8 /* AdViewController.swift */,
+				D79F72F6229E325C00951FC8 /* Main.storyboard */,
+				D79F72F9229E325D00951FC8 /* Assets.xcassets */,
+				D79F72FB229E325D00951FC8 /* LaunchScreen.storyboard */,
+				D79F72FE229E325D00951FC8 /* Info.plist */,
+			);
+			path = RazeAd;
 			sourceTree = "<group>";
 		};
 		D7B8C781229BE2590060DC59 /* PBREarth */ = {
@@ -263,6 +300,23 @@
 			productReference = D79F72CD229D217D00951FC8 /* Portal.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D79F72ED229E325C00951FC8 /* RazeAd */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D79F7301229E325D00951FC8 /* Build configuration list for PBXNativeTarget "RazeAd" */;
+			buildPhases = (
+				D79F72EA229E325C00951FC8 /* Sources */,
+				D79F72EB229E325C00951FC8 /* Frameworks */,
+				D79F72EC229E325C00951FC8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RazeAd;
+			productName = RazeAd;
+			productReference = D79F72EE229E325C00951FC8 /* RazeAd.app */;
+			productType = "com.apple.product-type.application";
+		};
 		D7B8C77F229BE2590060DC59 /* PBREarth */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D7B8C793229BE25A0060DC59 /* Build configuration list for PBXNativeTarget "PBREarth" */;
@@ -299,6 +353,9 @@
 					D79F72CC229D217D00951FC8 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
+					D79F72ED229E325C00951FC8 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
 					D7B8C77F229BE2590060DC59 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -321,6 +378,7 @@
 				D736DF75229B8A2F00C4FFC3 /* ARPokerDice */,
 				D7B8C77F229BE2590060DC59 /* PBREarth */,
 				D79F72CC229D217D00951FC8 /* Portal */,
+				D79F72ED229E325C00951FC8 /* RazeAd */,
 			);
 		};
 /* End PBXProject section */
@@ -355,6 +413,17 @@
 				D79F72DC229D217E00951FC8 /* LaunchScreen.storyboard in Resources */,
 				D79F72D9229D217E00951FC8 /* Assets.xcassets in Resources */,
 				D79F72D7229D217D00951FC8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D79F72EC229E325C00951FC8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D79F72F3229E325C00951FC8 /* art.scnassets in Resources */,
+				D79F72FD229E325D00951FC8 /* LaunchScreen.storyboard in Resources */,
+				D79F72FA229E325D00951FC8 /* Assets.xcassets in Resources */,
+				D79F72F8229E325C00951FC8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +471,15 @@
 				D79F72D0229D217D00951FC8 /* AppDelegate.swift in Sources */,
 				D79F72E6229D242300951FC8 /* FloatingPointExtension.swift in Sources */,
 				D79F72E5229D242300951FC8 /* RWLabel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D79F72EA229E325C00951FC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D79F72F5229E325C00951FC8 /* AdViewController.swift in Sources */,
+				D79F72F1229E325C00951FC8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +539,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				D79F72DB229D217E00951FC8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D79F72F6229E325C00951FC8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D79F72F7229E325C00951FC8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D79F72FB229E325D00951FC8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D79F72FC229E325D00951FC8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -712,6 +806,42 @@
 			};
 			name = Release;
 		};
+		D79F72FF229E325D00951FC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 69G8BQ9KQW;
+				INFOPLIST_FILE = RazeAd/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sxw.RazeAd;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D79F7300229E325D00951FC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 69G8BQ9KQW;
+				INFOPLIST_FILE = RazeAd/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sxw.RazeAd;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		D7B8C791229BE25A0060DC59 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -783,6 +913,15 @@
 			buildConfigurations = (
 				D79F72DE229D217E00951FC8 /* Debug */,
 				D79F72DF229D217E00951FC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D79F7301229E325D00951FC8 /* Build configuration list for PBXNativeTarget "RazeAd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D79F72FF229E325D00951FC8 /* Debug */,
+				D79F7300229E325D00951FC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
