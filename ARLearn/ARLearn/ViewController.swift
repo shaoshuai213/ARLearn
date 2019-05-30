@@ -15,6 +15,17 @@ class ViewController: UIViewController {
 		// Do any additional setup after loading the view.
 	}
 
+	func test() {
+		var lock = pthread_rwlock_t()
+		pthread_rwlock_init(&lock, nil)
 
+		pthread_rwlock_rdlock(&lock)
+		pthread_rwlock_unlock(&lock)
+
+		pthread_rwlock_wrlock(&lock)
+		pthread_rwlock_unlock(&lock)
+
+		pthread_rwlock_destroy(&lock)
+	}
 }
 
