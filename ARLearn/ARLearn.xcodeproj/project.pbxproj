@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D720F2FD229F7A3E00165EA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D720F2FC229F7A3E00165EA9 /* AppDelegate.swift */; };
+		D720F301229F7A3E00165EA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D720F300229F7A3E00165EA9 /* ViewController.swift */; };
+		D720F304229F7A3E00165EA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D720F302229F7A3E00165EA9 /* Main.storyboard */; };
+		D720F306229F7A4100165EA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D720F305229F7A4100165EA9 /* Assets.xcassets */; };
+		D720F309229F7A4100165EA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D720F307229F7A4100165EA9 /* LaunchScreen.storyboard */; };
+		D720F30F229F7A9600165EA9 /* MonsterTruck.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D720F30E229F7A9600165EA9 /* MonsterTruck.scnassets */; };
 		D736DF61229B867600C4FFC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D736DF60229B867600C4FFC3 /* AppDelegate.swift */; };
 		D736DF63229B867600C4FFC3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D736DF62229B867600C4FFC3 /* ViewController.swift */; };
 		D736DF66229B867600C4FFC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D736DF64229B867600C4FFC3 /* Main.storyboard */; };
@@ -39,6 +45,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D720F2FA229F7A3E00165EA9 /* ARMonsterTruck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARMonsterTruck.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D720F2FC229F7A3E00165EA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D720F300229F7A3E00165EA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D720F303229F7A3E00165EA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D720F305229F7A4100165EA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D720F308229F7A4100165EA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D720F30A229F7A4100165EA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D720F30E229F7A9600165EA9 /* MonsterTruck.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = MonsterTruck.scnassets; sourceTree = "<group>"; };
 		D736DF5D229B867600C4FFC3 /* ARLearn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARLearn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D736DF60229B867600C4FFC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D736DF62229B867600C4FFC3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +93,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D720F2F7229F7A3E00165EA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D736DF5A229B867600C4FFC3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -110,6 +131,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D720F2FB229F7A3E00165EA9 /* ARMonsterTruck */ = {
+			isa = PBXGroup;
+			children = (
+				D720F30E229F7A9600165EA9 /* MonsterTruck.scnassets */,
+				D720F2FC229F7A3E00165EA9 /* AppDelegate.swift */,
+				D720F300229F7A3E00165EA9 /* ViewController.swift */,
+				D720F302229F7A3E00165EA9 /* Main.storyboard */,
+				D720F305229F7A4100165EA9 /* Assets.xcassets */,
+				D720F307229F7A4100165EA9 /* LaunchScreen.storyboard */,
+				D720F30A229F7A4100165EA9 /* Info.plist */,
+			);
+			path = ARMonsterTruck;
+			sourceTree = "<group>";
+		};
 		D736DF54229B867600C4FFC3 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +152,7 @@
 				D736DF77229B8A2F00C4FFC3 /* ARPokerDice */,
 				D7B8C781229BE2590060DC59 /* PBREarth */,
 				D79F72CE229D217D00951FC8 /* Portal */,
+				D720F2FB229F7A3E00165EA9 /* ARMonsterTruck */,
 				D736DF5E229B867600C4FFC3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -128,6 +164,7 @@
 				D736DF76229B8A2F00C4FFC3 /* ARPokerDice.app */,
 				D7B8C780229BE2590060DC59 /* PBREarth.app */,
 				D79F72CD229D217D00951FC8 /* Portal.app */,
+				D720F2FA229F7A3E00165EA9 /* ARMonsterTruck.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -212,6 +249,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D720F2F9229F7A3E00165EA9 /* ARMonsterTruck */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D720F30D229F7A4100165EA9 /* Build configuration list for PBXNativeTarget "ARMonsterTruck" */;
+			buildPhases = (
+				D720F2F6229F7A3E00165EA9 /* Sources */,
+				D720F2F7229F7A3E00165EA9 /* Frameworks */,
+				D720F2F8229F7A3E00165EA9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ARMonsterTruck;
+			productName = ARMonsterTruck;
+			productReference = D720F2FA229F7A3E00165EA9 /* ARMonsterTruck.app */;
+			productType = "com.apple.product-type.application";
+		};
 		D736DF5C229B867600C4FFC3 /* ARLearn */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D736DF6F229B867700C4FFC3 /* Build configuration list for PBXNativeTarget "ARLearn" */;
@@ -290,6 +344,9 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = shaoshuai;
 				TargetAttributes = {
+					D720F2F9229F7A3E00165EA9 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
 					D736DF5C229B867600C4FFC3 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -321,11 +378,23 @@
 				D736DF75229B8A2F00C4FFC3 /* ARPokerDice */,
 				D7B8C77F229BE2590060DC59 /* PBREarth */,
 				D79F72CC229D217D00951FC8 /* Portal */,
+				D720F2F9229F7A3E00165EA9 /* ARMonsterTruck */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D720F2F8229F7A3E00165EA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D720F30F229F7A9600165EA9 /* MonsterTruck.scnassets in Resources */,
+				D720F309229F7A4100165EA9 /* LaunchScreen.storyboard in Resources */,
+				D720F306229F7A4100165EA9 /* Assets.xcassets in Resources */,
+				D720F304229F7A3E00165EA9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D736DF5B229B867600C4FFC3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -372,6 +441,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D720F2F6229F7A3E00165EA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D720F301229F7A3E00165EA9 /* ViewController.swift in Sources */,
+				D720F2FD229F7A3E00165EA9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D736DF59229B867600C4FFC3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -417,6 +495,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		D720F302229F7A3E00165EA9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D720F303229F7A3E00165EA9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D720F307229F7A4100165EA9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D720F308229F7A4100165EA9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		D736DF64229B867600C4FFC3 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -484,6 +578,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D720F30B229F7A4100165EA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 69G8BQ9KQW;
+				INFOPLIST_FILE = ARMonsterTruck/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sxw.ARLearn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D720F30C229F7A4100165EA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 69G8BQ9KQW;
+				INFOPLIST_FILE = ARMonsterTruck/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sxw.ARLearn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		D736DF6D229B867600C4FFC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -751,6 +881,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D720F30D229F7A4100165EA9 /* Build configuration list for PBXNativeTarget "ARMonsterTruck" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D720F30B229F7A4100165EA9 /* Debug */,
+				D720F30C229F7A4100165EA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D736DF58229B867600C4FFC3 /* Build configuration list for PBXProject "ARLearn" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
